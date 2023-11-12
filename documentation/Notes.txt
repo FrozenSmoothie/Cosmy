@@ -70,6 +70,25 @@
 // node .\src\deploy-commands-test.js
 // node .\src\deploy-commands-global.js
 
+## EVENT HANDLER
+// In the event files:
+// The "name" property states which event this file is for
+// the once property holds a boolean value that specifies if the event should run only once
+// The execute function holds your event logic, which will be called by the event handler whenever the event emits.
+
+// In the index.js file:
+// fs.readdirSync().filter() returns an array of all the file names in the given directory and filters for only .js files
+// The Client class in discord.js extends the EventEmitter class
+// Therefore, the client object exposes the .on() and .once() methods that you can use to register event listeners
+// These methods take two arguments: the event name and a callback function. These are defined in your separate event files as name and execute.
+// collects them in an args array using the ...
+// then calls event.execute() while passing in the args array using the ...
+
+// Tip:
+// In most cases, you can access your client instance in other files by obtaining it from one of the other discord.js structures,
+// e.g. interaction.client in the interactionCreate event. 
+// You do not need to manually pass it to your events.
+
 ## EXPORTING DATA
 // module.exports is how you export data in Node.js so that you can require() it in other files.
 // If you need to access your client instance from inside a command file, you can access it via interaction.client. 
