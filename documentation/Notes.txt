@@ -1,4 +1,5 @@
 // Run bot = node src/index.js
+// or: node .
 
 // client.on > Detect message in discord
 // const will give error if redifined
@@ -22,17 +23,56 @@
 // Would not recommend nodemon after research on it because of security risks
 // Npm install -g nodemon # this installs nodemon globally
 
-// LINTER:
+## LINTER:
 // Installing linter npm install --save-dev eslint
 
-// INDIV COMMAND FILES
+## INDIV COMMAND FILES
+// The individual command files, containing their definitions and functionality.
 // Slash command names must be between 1-32 characters and contain no capital letters, spaces, or symbols other than - and _
 // The data property, which will provide the command definition shown above for registering to Discord.
 // The execute method, which will contain the functionality to run from our event handler when the command is used.
 // These are placed inside module.exports so they can be read by other files
 
-// EXPORTING DATA
+## COMMAND HANDLER 
+// Loading command files:
+// The command handler, which dynamically reads the files and executes the commands.
+// We recommend attaching a .commands property to your client instance so that you can access your commands in other files.
+// The fs module is Node's native file system module. fs is used to read the commands directory and identify our command files.
+// The path module is Node's native path utility module. path helps construct paths to access files and directories. 
+// One of the advantages of the path module is that it automatically detects the operating system and uses the appropriate joiners.
+// The Collection class extends JavaScript's native Map class, and includes more extensive, useful functionality. 
+// Collection is used to store and efficiently retrieve commands for execution.
+// path.join() helps to construct a path to the commands directory
+// The fs.readdirSync() method reads the path to the directory and returns an array of all the file names it contains
+// Array.filter() removes any non-JavaScript files from the array
+// With the correct files identified, the last step is to loop over the array and dynamically set each command into the client.commands Collection
+// For each file being loaded, check that it has at least the data and execute properties.
+// This helps to prevent errors resulting from loading empty, unfinished or otherwise incorrect command files while you're still developing.
+
+// Receiving command interactions:
+// Every slash command is an interaction.
+// To respond to a command, you need to create a listener for the Client#event:interactionCreate event 
+// This will execute code when your application receives an interaction.
+// Not every interaction is a slash command (e.g. MessageComponent interactions). 
+// Make sure to only handle slash commands in this function by making use of the BaseInteraction#isChatInputCommand() method to exit the handler if another type is encountered. 
+
+// Executing commands:
+// First, you need to get the matching command from the client.commands Collection based on the interaction.commandName.
+// Your Client instance is always available via interaction.client. If no matching command is found, log an error to the console and ignore the event.
+
+## REGISTERING SLASH COMMANDS 
+// The command deployment script, to register your slash commands with Discord so they appear in the interface.
+// Slash commands can be registered in two ways; in one specific guild, or for every guild the bot is in.
+// Your application will need the applications.commands scope authorized in a guild for any of its slash commands to appear, and to be able to register them in a specific guild without error.
+// Slash commands only need to be registered once, and updated when the definition (description, options etc) is changed.
+// There is a daily limit 
+// deploy:
+// node .\src\deploy-commands-test.js
+// node .\src\deploy-commands-global.js
+
+## EXPORTING DATA
 // module.exports is how you export data in Node.js so that you can require() it in other files.
 // If you need to access your client instance from inside a command file, you can access it via interaction.client. 
 // If you need to access external files, packages, etc., you should require() them at the top of the file.
+
 
