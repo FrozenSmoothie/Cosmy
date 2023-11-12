@@ -1,0 +1,26 @@
+// Run bot = node src/index.js
+
+// client.on > Detect message in discord
+// const will give error if redifined
+// var "let" x be X
+// var "let" x be Y
+// let
+// var 'name' = 'value'
+
+// || or operator
+// ! not operator
+// return will return you back and stop following commands
+
+// = is only for const var let etc
+// == is for comparing values
+// === is for comparing data types
+// client is bot
+// ctrl + spacebar for options
+// intents are a set of permissions of permission in order to get access to a set of commands
+// Guild = Server
+// Nodemon restarts your server every time you make a change
+// Would not recommend nodemon after research on it because of security risks
+// Npm install -g nodemon # this installs nodemon globally
+
+// DISCORD:
+// Installing linter npm install --save-dev eslint

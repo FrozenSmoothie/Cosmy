@@ -1,0 +1,25 @@
+{
+  "name": "cosmy",
+  "version": "1.0.0",
+  "description": "js bot",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/FrozenSmoothie/Cosmy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrozenSmoothie/Cosmy/issues"
+  },
+  "homepage": "https://github.com/FrozenSmoothie/Cosmy#readme",
+  "dependencies": {
+    "discord.js": "^14.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0"
+  }
+}
