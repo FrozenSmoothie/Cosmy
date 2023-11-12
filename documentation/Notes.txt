@@ -22,6 +22,17 @@
 // Would not recommend nodemon after research on it because of security risks
 // Npm install -g nodemon # this installs nodemon globally
 
-// DISCORD:
+// LINTER:
 // Installing linter npm install --save-dev eslint
+
+// INDIV COMMAND FILES
 // Slash command names must be between 1-32 characters and contain no capital letters, spaces, or symbols other than - and _
+// The data property, which will provide the command definition shown above for registering to Discord.
+// The execute method, which will contain the functionality to run from our event handler when the command is used.
+// These are placed inside module.exports so they can be read by other files
+
+// EXPORTING DATA
+// module.exports is how you export data in Node.js so that you can require() it in other files.
+// If you need to access your client instance from inside a command file, you can access it via interaction.client. 
+// If you need to access external files, packages, etc., you should require() them at the top of the file.
+
