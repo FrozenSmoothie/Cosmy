@@ -24,3 +24,4 @@
 
 // DISCORD:
 // Installing linter npm install --save-dev eslint
+// Slash command names must be between 1-32 characters and contain no capital letters, spaces, or symbols other than - and _
