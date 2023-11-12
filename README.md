@@ -1,0 +1,2 @@
+# Cosmy
+Cosmy discord bot
