@@ -8,6 +8,13 @@ const commands = [];
 const foldersPath = path.join(__dirname, '../commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
+// Commands to deploy globally
+const commandsToDeploy = [
+	'ping',
+	'graph_bar',
+	'mean',
+];
+
 for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
@@ -17,16 +24,17 @@ for (const folder of commandFolders) {
 			const filePath = path.join(commandsPath, file);
 			const command = require(filePath);
 
-			if ('data' in command && 'execute' in command) {
+			// Check if the command name is in the list of commands to deploy
+			if ('data' in command && 'execute' in command && commandsToDeploy.includes(command.data.name)) {
 				commands.push(command.data.toJSON());
-				console.log(`Loaded command: ${command.data.name}`);
+				console.log(`Loaded and added command to deploy: ${command.data.name}`);
 			}
 			else {
-				console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+				console.log(`Skipped command at ${filePath} (not in the list of commands to deploy).`);
 			}
 		}
 		catch (error) {
-			console.error(`Error loading command from file ${file}:`, error);
+			console.error(`Error loading command from file ${file}:`, error.message);
 		}
 	}
 }
