@@ -13,6 +13,7 @@ const commandsToDeploy = [
 	'ping',
 	'graph_bar',
 	'mean',
+	'comfort',
 ];
 
 for (const folder of commandFolders) {
