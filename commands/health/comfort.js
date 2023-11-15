@@ -1,7 +1,25 @@
+/* eslint-disable no-inline-comments */
 /* eslint-disable quotes */
 /* eslint-disable indent */
 const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
 const path = require('node:path');
+
+// Array of hex colors
+const hexColors = [
+	'#ff0000', // Red
+	'#00ff00', // Green
+	'#0000ff', // Blue
+	'#ffff00', // Yellow
+	'#ff00ff', // Magenta
+	'#00ffff', // Cyan
+	'#800080', // Purple
+];
+
+// Function to choose a random color from the array
+function getRandomColor() {
+	const randomIndex = Math.floor(Math.random() * hexColors.length);
+	return hexColors[randomIndex];
+}
 
 module.exports = {
 	cooldown: 5,
@@ -28,14 +46,17 @@ module.exports = {
 				.setDescription('Whether or not the echo should be ephemeral')),
 
 	async execute(interaction) {
-		// ephemeral or not? Default is false
+		// Ephemeral or not? Default is false
 		const ephemeral = interaction.options.getBoolean('ephemeral') ?? false;
 
 		// Retrieve the chosen action
 		const action = interaction.options.getString('action');
 
+		// Choose random color
+		const randomColor = getRandomColor();
+
 		// Create an embed using EmbedBuilder
-		const embed = new EmbedBuilder().setColor('#FF69B4');
+		const embed = new EmbedBuilder().setColor(randomColor);
 
 		try {
 			// Get the absolute path to the GIF folder
