@@ -1,7 +1,25 @@
+/* eslint-disable no-inline-comments */
 /* eslint-disable quotes */
 /* eslint-disable indent */
 const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
 const path = require('node:path');
+
+// Array of hex colors
+const hexColors = [
+	'#ff0000', // Red
+	'#00ff00', // Green
+	'#0000ff', // Blue
+	'#ffff00', // Yellow
+	'#ff00ff', // Magenta
+	'#00ffff', // Cyan
+	'#800080', // Purple
+];
+
+// Function to choose a random color from the array
+function getRandomColor() {
+	const randomIndex = Math.floor(Math.random() * hexColors.length);
+	return hexColors[randomIndex];
+}
 
 module.exports = {
 	cooldown: 5,
@@ -28,14 +46,17 @@ module.exports = {
 				.setDescription('Whether or not the echo should be ephemeral')),
 
 	async execute(interaction) {
-		// ephemeral or not? Default is false
+		// Ephemeral or not? Default is false
 		const ephemeral = interaction.options.getBoolean('ephemeral') ?? false;
 
 		// Retrieve the chosen action
 		const action = interaction.options.getString('action');
 
+		// Choose random color
+		const randomColor = getRandomColor();
+
 		// Create an embed using EmbedBuilder
-		const embed = new EmbedBuilder().setColor('#FF69B4');
+		const embed = new EmbedBuilder().setColor(randomColor);
 
 		try {
 			// Get the absolute path to the GIF folder
@@ -44,31 +65,31 @@ module.exports = {
 			// Customize embed based on the chosen action
 			switch (action) {
 				case 'hug':
-					embed.setDescription(`Cosmic gives you a hug!`);
+					embed.setDescription(`Cosmy gives you a hug!`);
 					break;
 				case 'cuddle':
-					embed.setDescription(`Cosmic cuddles up with you!`);
+					embed.setDescription(`Cosmy cuddles up with you!`);
 					break;
 				case 'nuzzle':
-					embed.setDescription(`Cosmic gently nuzzles you!`);
+					embed.setDescription(`Cosmy gently nuzzles you!`);
 					break;
 				case 'love':
-					embed.setDescription(`Cosmic showers you with love!`);
+					embed.setDescription(`Cosmy showers you with love!`);
 					break;
 				case 'high_five':
-					embed.setDescription(`Cosmic gives you a high five!`);
+					embed.setDescription(`Cosmy gives you a high five!`);
 					break;
 				case 'poke':
-					embed.setDescription(`Cosmic pokes you!`);
+					embed.setDescription(`Cosmy pokes you!`);
 					break;
 				case 'dance':
-					embed.setDescription(`Cosmic dances with you!`);
+					embed.setDescription(`Cosmy dances with you!`);
 					break;
 				case 'bounce':
-					embed.setDescription(`Cosmic bounces with you!`);
+					embed.setDescription(`Cosmy bounces with you!`);
 					break;
 				case 'friend':
-					embed.setDescription(`Cosmic takes you as their friend! >:3`);
+					embed.setDescription(`Cosmy takes you as their friend! >:3`);
 					break;
 				default:
 					embed.setDescription('Invalid action.');
