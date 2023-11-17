@@ -65,31 +65,31 @@ module.exports = {
 			// Customize embed based on the chosen action
 			switch (action) {
 				case 'hug':
-					embed.setDescription(`Cosmic gives you a hug!`);
+					embed.setDescription(`Cosmy gives you a hug!`);
 					break;
 				case 'cuddle':
-					embed.setDescription(`Cosmic cuddles up with you!`);
+					embed.setDescription(`Cosmy cuddles up with you!`);
 					break;
 				case 'nuzzle':
-					embed.setDescription(`Cosmic gently nuzzles you!`);
+					embed.setDescription(`Cosmy gently nuzzles you!`);
 					break;
 				case 'love':
-					embed.setDescription(`Cosmic showers you with love!`);
+					embed.setDescription(`Cosmy showers you with love!`);
 					break;
 				case 'high_five':
-					embed.setDescription(`Cosmic gives you a high five!`);
+					embed.setDescription(`Cosmy gives you a high five!`);
 					break;
 				case 'poke':
-					embed.setDescription(`Cosmic pokes you!`);
+					embed.setDescription(`Cosmy pokes you!`);
 					break;
 				case 'dance':
-					embed.setDescription(`Cosmic dances with you!`);
+					embed.setDescription(`Cosmy dances with you!`);
 					break;
 				case 'bounce':
-					embed.setDescription(`Cosmic bounces with you!`);
+					embed.setDescription(`Cosmy bounces with you!`);
 					break;
 				case 'friend':
-					embed.setDescription(`Cosmic takes you as their friend! >:3`);
+					embed.setDescription(`Cosmy takes you as their friend! >:3`);
 					break;
 				default:
 					embed.setDescription('Invalid action.');
